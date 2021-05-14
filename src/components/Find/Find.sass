@@ -1,0 +1,27 @@
+.find
+  margin-bottom: 30px
+  &-form
+    display: flex
+    align-items: center
+    .form-group
+      width: 50%
+      position: relative
+      &:nth-child(1)
+        &::after
+          content: ''
+          width: 1px
+          height: 60%
+          top: 20%
+          right: 0
+          transform: rotate(20deg)
+          position: absolute
+          background: #000
+          z-index: 5
+input
+  height: 50px
+  width: 100%
+  background: #fff
+  border: none
+  text-align: center
+  color: #000
+  outline: none
