@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import IssuesItem from './IssuesItem'
 import "./Issues.sass"
 
 const Issues:React.FC = () => {
+  
+
+
   return(
     <section className="issues">
       <div className="container">

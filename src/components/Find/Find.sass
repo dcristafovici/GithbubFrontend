@@ -3,6 +3,7 @@
   &-form
     display: flex
     align-items: center
+    flex-wrap: wrap
     .form-group
       width: 50%
       position: relative
@@ -17,6 +18,9 @@
           position: absolute
           background: #000
           z-index: 5
+      &:last-child
+        margin-top: 10px
+        width: 100%
 input
   height: 50px
   width: 100%
@@ -25,3 +29,21 @@ input
   text-align: center
   color: #000
   outline: none
+
+button.button
+  width: 100%
+  padding: 0
+  justify-content: center
+  height: 40px
+  display: flex
+  align-items: center
+  border-radius: 0
+  cursor: pointer
+  border: none
+  outline: none
+  background: #4B954A
+  border-radius: 5px
+  span
+    color: #fff
+    font-weight: bold
+    
