@@ -20,8 +20,8 @@ export const fetchIssues = (user:string, repository:string, count:number, page:n
   } catch(error){
     dispatch({
       type: FETCH_ISSUES_FAIL,
-      payload: error.response && error.response.data.message
-        ? error.response.data.message
+      payload: error.response && error.response.data.err
+        ? error.response.data.err
         : error.message
     })
   }

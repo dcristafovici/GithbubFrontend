@@ -10,7 +10,7 @@ const Pagination:React.FC = () => {
 
   const [pages, setPages] = useState(Array)
   const [currentPage, setCurrentPage] =  useState(1)
-  const { loading, totalCount , issues } = useTypeSelector(state => state.issuesReducer)
+  const { totalCount , issues } = useTypeSelector(state => state.issuesReducer)
   const { per_page } = useTypeSelector(state => state.filterReducer)
 
   useEffect(() => {    

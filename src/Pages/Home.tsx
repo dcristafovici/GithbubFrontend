@@ -4,7 +4,7 @@ import Find from '../components/Find/Find'
 import Issues from '../components/Issues/Issues'
 import Pagination from '../components/Pagination/Pagination'
 
-const Home:React.FC = () => {
+const Home = () => {
 
   return(
     <React.Fragment>

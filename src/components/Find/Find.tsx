@@ -26,6 +26,7 @@ const Find:React.FC = () => {
 
   return(
     <section className="find">
+     
       <div className="container">
         <div className="find-form">
           

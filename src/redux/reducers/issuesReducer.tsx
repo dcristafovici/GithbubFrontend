@@ -6,7 +6,7 @@ import {
 const initialState = {
   issues : [],
   loading: false,
-  errors: [],
+  error: '',
   totalCount: 0
 }
 export const issuesReducer = (state = initialState, action:any) =>{
@@ -16,7 +16,7 @@ export const issuesReducer = (state = initialState, action:any) =>{
       return{
         ...state,
         loading: true,
-        errors: []
+        error: ''
       }
     
     case FETCH_ISSUES_SUCCESS:
@@ -30,8 +30,9 @@ export const issuesReducer = (state = initialState, action:any) =>{
     case FETCH_ISSUES_FAIL:
       return{
         ...state,
+        issues: [],
         loading: false,
-        erors: action.payload
+        error: action.payload
       }
 
     default:
