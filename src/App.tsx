@@ -1,19 +1,24 @@
 import React from 'react';
+import { Route, Switch, BrowserRouter, } from 'react-router-dom'
 import Header from './components/Header/Header'
-import Filter from './components/Filter/Filter'
-import Find from './components/Find/Find'
-import Issues from './components/Issues/Issues'
-import Pagination from './components/Pagination/Pagination'
+import Home from  './Pages/Home'
+import SingleIssue from './Pages/SingleIssue'
 
 const App:React.FC = () => {
   return (
     
     <main className='main-github'>
-      <Header />
-      <Filter />
-      <Find />
-      <Issues />
-      <Pagination />
+      <BrowserRouter>
+        <Header />  
+        <Switch>
+          <Route exact path='/'>
+            {Home}
+          </Route>
+          <Route path='/issue/:id'>
+            {SingleIssue}
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </main>
     
   );

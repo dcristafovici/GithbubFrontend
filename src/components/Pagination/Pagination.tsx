@@ -20,8 +20,9 @@ const Pagination:React.FC = () => {
   
   
   const onGetIssues = async(page:number) => {
-    setCurrentPage(page)
     await dispatch(fetchIssues('facebook', 'react' , per_page, page))  
+    setCurrentPage(page)
+
   }
 
   return(

@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 interface UserInterface {
   user: {
     avatar_url: string,
@@ -16,9 +18,10 @@ const IssuesItem:React.FC<UserInterface> = ( { user, title , date , number} ) =>
         <div className="issues-item__photo">
           <img src={user.avatar_url} alt={user.login}/>
         </div>
-        <div className="issues-item__name">
+
+        <Link to={'issue/' + number} className="issues-item__name">
           <span>{title}</span>
-        </div>
+        </Link>
       </div>
       <div className="issues-item__right">
         <div className="issues-item__general">

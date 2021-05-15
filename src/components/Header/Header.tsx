@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.sass'
 
 const Header:React.FC = () => {
@@ -6,10 +7,10 @@ const Header:React.FC = () => {
     <header className="header">
       <div className="container">
         <div className="header-wrapper">
-          <a href='#' className="header-logo">
-              <img src="images/header/logo.svg" alt=""/>
-              <span>Github Issue Tracker</span>
-          </a>
+          <Link to="/" className="header-logo">
+            <img src="images/header/logo.svg" alt=""/>
+            <span>Github Issue Tracker</span>
+          </Link>
         </div>
       </div>
     </header>
