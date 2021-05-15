@@ -10,7 +10,8 @@ interface iIssue {
     avatar_url: string,
     login: string
   },
-  body: string
+  body: string,
+  labels: [],
 }
 
 
@@ -23,7 +24,7 @@ const Issue:React.FC = () => {
   
   const getIssue = async() => {
     try{
-      const result = await axios.get(`https://api.github.com/repos/facebook/react/issues/${id}`)
+      const result = await axios.get(`http://localhost:8000/api/issue`, {params: { user: 'facebook', repository: 'react', number: id }})
       setLoading(false)
       setIssue(result.data)
     } catch(err){
@@ -38,11 +39,23 @@ const Issue:React.FC = () => {
     getIssue()
   }, [])
 
+
   return(
     <section className="issue">
       <div className="container">
         <div className="issue-name">
           {issue?.title}
+        </div>
+        {console.log(issue)}
+        <div className="issue-labels">
+          {issue?.labels.map((label:any) => {
+            {console.log(label)}
+            return(
+              <div className="issue-label" style={{backgroundColor: '#' + label.color}}>
+                {label.name}
+              </div>
+            )
+          })}
         </div>
         <div className="issue-author">
           <div className="issue-author__photo">

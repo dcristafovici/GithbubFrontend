@@ -6,7 +6,6 @@ const SingleIssue:React.FC = () => {
   return(
     <>
       <Issue />
-      <Comments />
     </>
   )
 }
