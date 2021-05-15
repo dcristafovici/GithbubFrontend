@@ -1,0 +1,1 @@
+export const CHANGE_PERPAGE = 'CHANGE_PERPAGE'

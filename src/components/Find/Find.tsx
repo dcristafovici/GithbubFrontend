@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
 import { fetchIssues } from '../../redux/actions/issuesAction'
-import axios from 'axios'
+import { useTypeSelector } from '../../types/useTypeSelector'
 import './Find.sass'
 
 
@@ -11,6 +11,7 @@ const Find:React.FC = () => {
     user: "",
     repository: ""
   })
+  const { per_page } = useTypeSelector(state => state.filterReducer)
   const dispatch = useDispatch();
 
   const onChangeHandler = (e:React.FormEvent<HTMLInputElement>) => {
@@ -19,7 +20,7 @@ const Find:React.FC = () => {
 
   const onSubmitForm = async(e:React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    await dispatch(fetchIssues(form.user, form.repository))
+    await dispatch(fetchIssues(form.user, form.repository , per_page, 1))
   }
 
 

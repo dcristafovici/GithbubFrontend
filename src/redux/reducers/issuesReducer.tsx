@@ -6,7 +6,8 @@ import {
 const initialState = {
   issues : [],
   loading: false,
-  errors: []
+  errors: [],
+  totalCount: 0
 }
 export const issuesReducer = (state = initialState, action:any) =>{
   switch(action.type){
@@ -22,7 +23,8 @@ export const issuesReducer = (state = initialState, action:any) =>{
       return{
         ...state,
         loading: false,
-        issues: action.payload
+        issues: action.payload.data,
+        totalCount: action.payload.count
       }
 
     case FETCH_ISSUES_FAIL:

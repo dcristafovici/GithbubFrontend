@@ -10,7 +10,6 @@ interface UserInterface {
 }
 const IssuesItem:React.FC<UserInterface> = ( { user, title , date , number} ) => {
   const newDate = new Date(date)
-  console.log(newDate)
   return(
     <div className="issues-item">
       <div className="issues-item__left">

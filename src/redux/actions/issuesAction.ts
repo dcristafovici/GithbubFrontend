@@ -5,13 +5,12 @@ import {
   FETCH_ISSUES_FAIL 
   } from '../action-types/issuesTypes'
   
-export const fetchIssues = (user:any, repository:any) => async(dispatch:any) => {
-  console.log(user, repository)
+export const fetchIssues = (user:string, repository:string, count:number, page:number) => async(dispatch:any) => {
   try{
     dispatch({
       type: FETCH_ISSUES_START,
     })
-    const { data } = await axios.get('http://localhost:8000/api/issues', {params: {user, repository}})
+    const { data } = await axios.get('http://localhost:8000/api/issues', {params: {user, repository, count , page}})
     
     dispatch({
       type: FETCH_ISSUES_SUCCESS,
