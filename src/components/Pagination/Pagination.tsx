@@ -10,7 +10,7 @@ const Pagination:React.FC = () => {
 
   const [pages, setPages] = useState(Array)
   const [currentPage, setCurrentPage] =  useState(1)
-  const { totalCount , issues } = useTypeSelector(state => state.issuesReducer)
+  const { totalCount , issues, loading } = useTypeSelector(state => state.issuesReducer)
   const { per_page } = useTypeSelector(state => state.filterReducer)
 
   useEffect(() => {    
@@ -26,10 +26,10 @@ const Pagination:React.FC = () => {
   }
 
   return(
-    <section className="pagination">
+    <section className='pagination'>
       <div className="container">
         <div className="pagination-list">
-          <ul>
+          <ul className={loading ? "pag-disabled" : ""}>
             {pages.map((page:any) => {
               return(
                 <li 

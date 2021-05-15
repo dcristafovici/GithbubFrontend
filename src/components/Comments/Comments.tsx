@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
-
 const Comments:React.FC = () => {
   const [comments , setComments] = useState({})
 

@@ -16,6 +16,7 @@ export const issuesReducer = (state = initialState, action:any) =>{
       return{
         ...state,
         loading: true,
+        issues: [],
         error: ''
       }
     

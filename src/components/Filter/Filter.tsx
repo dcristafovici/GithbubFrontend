@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import "./Filter.sass"
 import { useDispatch } from 'react-redux'
 import { changePerPage } from '../../redux/actions/filterAction'
+import { fetchIssues } from '../../redux/actions/issuesAction'
+import { useTypeSelector } from '../../types/useTypeSelector'
+ 
 const Filter:React.FC = () => {
   const [items, setItems] = useState([
     { name: 10, id: 0, active: false },
@@ -10,9 +13,12 @@ const Filter:React.FC = () => {
     { name: 50, id: 3, active: false },
   ])
   
+  const { user, repository } = useTypeSelector(state => state.formReducer)
+  const { loading } = useTypeSelector(state => state.issuesReducer)
   const dispatch = useDispatch()
 
-  const onChangeClasss = (id:number, number:number) => {
+
+  const onChangeClasss = async(id:number, number:number) => {
     setItems(items =>
       items.map(item =>
         item.id === id
@@ -28,6 +34,8 @@ const Filter:React.FC = () => {
     );
 
     dispatch(changePerPage(number))
+    if(user)
+      await dispatch(fetchIssues(user, repository, number, 1))
   }
   
   return(
@@ -35,7 +43,7 @@ const Filter:React.FC = () => {
       <div className="container">
         <div className="filter-name">Количество записей на страницу</div>
         <div className="filter-list">
-          <ul>
+          <ul className={ loading ? "loading" : ""}>
             {items.map((item:any) => {
               return(
                 <li 
