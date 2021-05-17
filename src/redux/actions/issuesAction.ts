@@ -11,7 +11,6 @@ export const fetchIssues = (user:string, repository:string, count:number, page:n
       type: FETCH_ISSUES_START,
     })
     const { data } = await axios.get('http://localhost:8000/api/issues', {params: {user, repository, count , page}})
-    
     dispatch({
       type: FETCH_ISSUES_SUCCESS,
       payload: data
